@@ -4,7 +4,7 @@ import SimilarProducts from "@/components/product/SimilarProducts";
 import ProductInfo from "@/components/product/ProductInfo";
 import BackButton from "@/components/BackButton";
 
-type Params = Promise<{ productId: any }>;
+type Params = Promise<{ productId: string[] }>;
 
 const ProductPage = async ({ params }: { params: Params }) => {
   const { productId } = await params;

@@ -26,15 +26,16 @@ interface CategoryPageProps {
   };
 }
 
-const CategoryPage = async ({
-  params,
-  searchParams,
-}: {
-  params: { categoryId: string };
-  searchParams: {
-    searchValue?: string;
-  };
-}) => {
+const CategoryPage = async (
+  props: {
+    params: Promise<{ categoryId: string }>;
+    searchParams: Promise<{
+      searchValue?: string;
+    }>;
+  }
+) => {
+  const searchParams = await props.searchParams;
+  const params = await props.params;
   console.log("SearchValue:", searchParams.searchValue);
 
   // Fetch category and products

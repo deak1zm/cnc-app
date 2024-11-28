@@ -4,9 +4,9 @@ import SimilarProducts from "@/components/product/SimilarProducts";
 import ProductInfo from "@/components/product/ProductInfo";
 import BackButton from "@/components/BackButton";
 
-type ProductPageParams = Promise<{ productId: string }>;
+type Params = Promise<{ productId: any }>;
 
-const ProductPage = async (props: { params: ProductPageParams }) => {
+const ProductPage = async (props: { params: Params }) => {
   const params = await props.params;
   const product = await getProduct(params.productId); // Await fetching product
   const suggestedProducts = await getProducts(); // Await fetching suggested products

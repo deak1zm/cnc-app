@@ -11,8 +11,7 @@ interface LandingPageProps {
 export const revalidate = 0;
 
 export default async function LandingPage({ searchParams }: LandingPageProps) {
-  const params = await searchParams;
-  const searchValue = params?.searchValue || "";
+  const searchValue = searchParams?.searchValue || "";
   const products = await getPublishedProducts({ searchValue });
 
   return (

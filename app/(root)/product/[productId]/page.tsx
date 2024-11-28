@@ -10,7 +10,7 @@ interface ProductPageProps {
   };
 }
 
-const ProductPage: React.FC<ProductPageProps> = async ({ params }) => {
+const ProductPage = async ({ params }: ProductPageProps) => {
   const { productId } = params;
 
   const product = await getProduct(productId); // Await fetching product

@@ -9,14 +9,16 @@ type SearchParams = Promise<{ [query: string]: string | string[] | undefined }>;
 
 export const revalidate = 0;
 
-export default async function LandingPage(props: {
+export default async function LandingPage({
+  searchParams,
+}: {
   searchParams: SearchParams;
 }) {
-  const searchParams = await props.searchParams;
+  const { query } = await searchParams;
 
-  const searchValue = Array.isArray(searchParams.query)
-    ? searchParams.query[0] // Use the first value if it's an array
-    : searchParams.query || ""; // Use the string value or an empty string as fallback
+  const searchValue = Array.isArray(query)
+    ? query[0] // Use the first value if it's an array
+    : query || ""; // Use the string value or an empty string as fallback
 
   console.log("****LOG:", searchValue);
 

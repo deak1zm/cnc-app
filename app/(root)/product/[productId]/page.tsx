@@ -6,9 +6,9 @@ import BackButton from "@/components/BackButton";
 
 type Params = Promise<{ productId: any }>;
 
-const ProductPage = async (props: { params: Params }) => {
-  const params = await props.params;
-  const product = await getProduct(params.productId); // Await fetching product
+const ProductPage = async ({ params }: { params: Params }) => {
+  const { productId } = await params;
+  const product = await getProduct(productId); // Await fetching product
   const suggestedProducts = await getProducts(); // Await fetching suggested products
 
   if (!product) return null;

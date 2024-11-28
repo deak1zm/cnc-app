@@ -30,7 +30,7 @@ const Search = () => {
         url: pathname || "/", // Ensure pathname is valid
         query: {
           // categoryId: currentCategoryId,
-          searchValue: debouncedValue,
+          query: debouncedValue,
         },
       },
       { skipEmptyString: true, skipNull: true }

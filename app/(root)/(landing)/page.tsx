@@ -4,15 +4,22 @@ import Footer from "@/components/landing/Footer";
 import ProductCard from "@/components/product/ProductCard";
 import { Product } from "@/types";
 
-type LandingPageParams = Promise<{ searchValue: string }>;
+type Params = Promise<{ slug: string }>;
+type SearchParams = Promise<{ [query: string]: string | string[] | undefined }>;
 
 export const revalidate = 0;
 
 export default async function LandingPage(props: {
-  searchParams: LandingPageParams;
+  searchParams: SearchParams;
 }) {
-  const params = await props.searchParams;
-  const searchValue = params?.searchValue || "";
+  const searchParams = await props.searchParams;
+
+  const searchValue = Array.isArray(searchParams.query)
+    ? searchParams.query[0] // Use the first value if it's an array
+    : searchParams.query || ""; // Use the string value or an empty string as fallback
+
+  console.log("****LOG:", searchValue);
+
   const products = await getPublishedProducts({ searchValue });
 
   return (

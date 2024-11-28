@@ -1,16 +1,18 @@
-import getCategories from "@/actions/getCategories";
 import getProduct from "@/actions/getProduct";
-import ProductModal from "@/components/admin/ProductModal";
+import getProducts from "@/actions/getProducts";
+import SimilarProducts from "@/components/product/SimilarProducts";
+import ProductInfo from "@/components/product/ProductInfo";
+import BackButton from "@/components/BackButton";
 
-export const revalidate = 0;
+type Params = Promise<{ productId: string[] }>;
 
-export default async function ProductPage({
-  params,
-}: {
-  params: { productId: string };
-}) {
-  // const product = await getProduct(params.productId);
-  const categories = await getCategories();
+const ProductPage = async ({ params }: { params: Params }) => {
+  const { productId } = await params;
+  const product = await getProduct(productId); // Await fetching product
 
-  return <div className="p-4"></div>;
-}
+  if (!product) return null;
+
+  return <div className="flex flex-col p-4">{product.name}</div>;
+};
+
+export default ProductPage;

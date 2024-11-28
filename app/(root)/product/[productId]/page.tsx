@@ -4,13 +4,7 @@ import SimilarProducts from "@/components/product/SimilarProducts";
 import ProductInfo from "@/components/product/ProductInfo";
 import BackButton from "@/components/BackButton";
 
-interface ProductPageProps {
-  params: {
-    productId: string;
-  };
-}
-
-const ProductPage = async ({ params }: ProductPageProps) => {
+const ProductPage = async ({ params }: { params: { productId: string } }) => {
   const { productId } = params;
 
   const product = await getProduct(productId); // Await fetching product

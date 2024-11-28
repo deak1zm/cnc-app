@@ -4,14 +4,15 @@ import Footer from "@/components/landing/Footer";
 import ProductCard from "@/components/product/ProductCard";
 import { Product } from "@/types";
 
-interface LandingPageProps {
-  searchParams: { searchValue?: string };
-}
+type LandingPageParams = Promise<{ searchValue: string }>;
 
 export const revalidate = 0;
 
-export default async function LandingPage({ searchParams }: LandingPageProps) {
-  const searchValue = searchParams?.searchValue || "";
+export default async function LandingPage(props: {
+  searchParams: LandingPageParams;
+}) {
+  const params = await props.searchParams;
+  const searchValue = params?.searchValue || "";
   const products = await getPublishedProducts({ searchValue });
 
   return (

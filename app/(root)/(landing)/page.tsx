@@ -31,6 +31,39 @@ export default async function LandingPage({
           {products.map((product: Product) => (
             <ProductCard key={product.id} product={product} />
           ))}
+          {products.map((product: Product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+          {products.map((product: Product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+          {products.map((product: Product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+          {products.map((product: Product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+          {products.map((product: Product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+          {products.map((product: Product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+          {products.map((product: Product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+          {products.map((product: Product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+          {products.map((product: Product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+          {products.map((product: Product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+          {products.map((product: Product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
         </Container>
       ) : (
         <div className="pt-60 h-full w-full text-center text-gray-500">
